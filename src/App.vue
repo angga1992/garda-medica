@@ -1,12 +1,25 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <headers />
+    <sidebar />
+    <tabs />
     <router-view/>
   </div>
 </template>
+
+<script>
+import sidebar from '@/components/sidebarMenu'
+import headers from '@/components/header'
+import tabs from '@/components/tabs'
+export default {
+  components: {
+    sidebar,
+    headers,
+    tabs
+  }
+  
+}
+</script>
 
 <style lang="scss">
 #app {
