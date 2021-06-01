@@ -1,35 +1,74 @@
 <template>
-  <div class="sidebar">
-    <a href="#home">home</a>
-    <a href="#antrian">antrian</a>
-    <a href="#regis">regis</a>
-    <a href="#rajal">rajal</a>
-    <a href="#ranap">ranap</a>
-    <a href="#rekmed">rekmed</a>
-    <a href="#farmasi">farmasi</a>
-    <a href="#radiologi">radiologi</a>
-    <a href="#lab">lab</a>
-    <a href="#kasir">kasir</a>
-    <a href="#sekre">sekre</a>
+  <div class="sidebar" >
+    <div v-for="(menus, idx) in menu" :key="idx">
+      <a :href="`#${menus.name}`">
+        <img style="width: 20px; height: 20px" :src="menus.icon" alt="">
+        <span>
+          {{menus.name}}
+        </span>
+      </a>
+    </div>
   </div>
 </template>
 
 <script>
+import ihome from '@/assets/home.svg'
+import iamb from '@/assets/ambulance.svg'
+import iste from '@/assets/stethoscope.svg'
+import ibed from '@/assets/bed.svg'
+import ichart from '@/assets/bar-chart.svg'
+import ipharmacy from '@/assets/pharmacy.svg'
+import itomography from '@/assets/tomography.svg'
+import imicroscope from '@/assets/microscope.svg'
+import icashier from '@/assets/cashier.svg'
 export default {
   data() {
     return {
       menu: [
-        "home",
-        "antrian",
-        "regis",
-        "rajal",
-        "ranap",
-        "rekmed",
-        "farmasi",
-        "radiologi",
-        "lab",
-        "kasir",
-        "sekre",
+        {
+          name: "home",
+          icon: ihome,
+        },
+        {
+          name: "antrian",
+          icon: ihome,
+        },
+        {
+          name: "regis",
+          icon: iamb,
+        },
+        {
+          name: "rajal",
+          icon: iste,
+        },
+        {
+          name: "ranap",
+          icon: ibed,
+        },
+        {
+          name: "rekmed",
+          icon: ichart,
+        },
+        {
+          name: "farmasi",
+          icon: ipharmacy,
+        },
+        {
+          name: "radiologi",
+          icon: itomography,
+        },
+        {
+          name: "lab",
+          icon: imicroscope,
+        },
+        {
+          name: "kasir",
+          icon: icashier,
+        },
+        {
+          name: "sekre",
+          icon: icashier,
+        },
       ],
     };
   },
@@ -48,10 +87,10 @@ body {
   width: 75px;
   background-color: #0caa4e;
   color: white;
-  position: fixed;
+  position: absolute;
   height: 100%;
   overflow: auto;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .sidebar a {
@@ -67,7 +106,7 @@ body {
 }
 
 .sidebar a:hover:not(.active) {
-  background-color:white;
+  background-color: white;
   color: green;
 }
 

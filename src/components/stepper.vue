@@ -1,6 +1,6 @@
 <template>
 <div>
-  <ul class="events" style="width: 350px;">
+  <ul class="events" style="width: 330px;">
     <li  v-for="(step, idx) in stepper" :key="idx">
       <time>{{step.date}}</time>
       <span><strong>{{step.info}}</strong></span>
@@ -87,7 +87,7 @@ export default {
 }
 
 .events {
-  margin: 5em;
+  margin: 7em 0em 0em 2em;
   width: 50%;
   /* z-index: 0; */
 }

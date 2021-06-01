@@ -1,16 +1,19 @@
 <template>
-  <div class="home">
-      <contents />
-  </div>
+    <div>
+        <button @click="go('tahap1')">tahap 1</button>
+        <button @click="go('tahap2')">tahap 2</button>
+        <button @click="go('tahap3')">tahap 3</button>
+    </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import contents from '@/components/contents'
 export default {
-  name: 'Home',
-  components: {
-    contents
-  }
+    methods: {
+        go (val) {
+            this.$router.push({
+                path: `/${val}`
+            })
+        }
+    }
 }
 </script>

@@ -4,13 +4,14 @@
     <div class="sub-content-headers">
       <div class="content-action-headers">
         <div class="back-action">
-          <button>back</button>
+          <button><img  style="width: 23px; height: 23px" :src="iconBack" alt=""></button>
         </div>
         <div class="type-services-action">
-          <input placeholder="rawat jalan" type="text" />
+          <input placeholder="rawat jalan" disabled type="text" />
         </div>
         <div class="search-action">
           <input placeholder="cari" type="text" />
+          <img :src="search" alt="">
         </div>
       </div>
       <div class="content-info">
@@ -45,9 +46,10 @@
           <div class="square-tabs"
           >
             <span class="legend">anda masuk sebagai</span>
-            <span class="infos"
-              >{{account}}</span
-            >
+            <div class="infos">
+              <img style="width: 14px; height: 14px" :src="accountIcon" alt="">
+              <span>{{account}}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -99,11 +101,17 @@
 </template>
 
 <script>
+import user from "@/assets/user.svg";
+import iconsearch from "@/assets/search.svg";
 import logos from "@/assets/gardamedica.png";
+import back from "@/assets/left-arrow.svg";
 export default {
   data() {
     return {
+      search: iconsearch,
+      accountIcon: user,
       logo: logos,
+      iconBack: back,
       patients: {
           name: 'ny.mariana',
           birthDay: '13 januari 1997',
@@ -118,6 +126,34 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=text]:focus {
+  border: 1px solid #0caa4e !important;
+  outline: none ! important;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #0caa4e;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
 .reds {
     border: 1px solid red;
 }
@@ -134,6 +170,7 @@ export default {
     background: white;
     border: 1px solid #0caa4e;
     // align-items: center;
+    z-index: 99;
     top: 0;
     position: sticky;
     img {
@@ -149,7 +186,7 @@ export default {
             display: flex;
             padding-left: 20px;
             .back-action {
-                padding: 5px;
+                padding: 12px;
             }
             .type-services-action {
                 width: 75%;
@@ -163,6 +200,13 @@ export default {
                 padding: 5px;
                 input {
                     width: 80%;
+                }
+                img {
+                    width: 22px;
+                    height: 21px;
+                    position: absolute;
+                    top: 18px;
+                    right: 37px;
                 }
             }
         }
@@ -206,7 +250,10 @@ export default {
                         color: grey;
                     }
                     .infos {
-                        font-size: 14px; font-weight: 800
+                        font-size: 14px;
+                        font-weight: 800;
+                        display: flex;
+                        align-items: center;
                     }
                 }
             }

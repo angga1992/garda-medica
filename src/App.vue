@@ -1,21 +1,21 @@
 <template>
   <div id="app">
-    <headers />
+    <!-- <headers />
     <sidebar />
-    <tabs />
+    <tabs /> -->
     <router-view/>
   </div>
 </template>
 
 <script>
-import sidebar from '@/components/sidebarMenu'
-import headers from '@/components/header'
-import tabs from '@/components/tabs'
+// import sidebar from '@/components/sidebarMenu'
+// import headers from '@/components/header'
+// import tabs from '@/components/tabs'
 export default {
   components: {
-    sidebar,
-    headers,
-    tabs
+    // sidebar,
+    // headers,
+    // tabs
   }
   
 }

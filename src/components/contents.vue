@@ -1,21 +1,25 @@
 <template>
     <div style="display: flex;">
         <stepper />
-        <div style="display: flex; margin: 5em 0em 5em 0em; border: 1px solid grey; flex-direction: column; height: 690px; width: 260px;  overflow: auto;">
-            <div style="width: 180px; margin: 10px" v-for="(lists, idx) in list" :key="idx">
-                <button style="width: 130px" class="btns">{{ lists.title }}</button>
+        <div style="display: flex;     width: 100%; margin: 90px 0 0 0;padding: 5px;">
+            <div style="display: flex; flex-direction: column; height: 690px; width: 200px;  overflow: auto;">
+                <div style="width: 180px; margin: 10px" v-for="(lists, idx) in list" :key="idx">
+                    <button :disabled="!lists.active" class="btns">{{ lists.title }}</button>
+                </div>
             </div>
-        </div>
-        <div style="display: flex; margin: 5em 0em 5em 0em; border: 1px solid grey; width: 80%">
-            dfdshfgskdj
+            <div style="display: flex; margin: 12px 0em 5em 0em; border: 1px solid grey; width: 80%;     border-radius: 30px;">
+                <editor />
+            </div>
         </div>
     </div>
 </template>
 <script>
 import stepper from '@/components/stepper'
+import editor from '@/components/editor'
 export default {
     components: {
-        stepper
+        stepper,
+        editor
     },
     data () {
         return {
@@ -86,5 +90,11 @@ export default {
   display: inline-block;
   font-size: 16px;
   margin: 2px;
+  width: 130px;
+  cursor:pointer;
 }
+button:disabled {
+  background: grey;
+}
+
 </style>
